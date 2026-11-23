@@ -282,15 +282,28 @@ namespace WeeklyHermit.Tests
             yield return Delay(1);
             var plugin = Chainloader.PluginInfos["gkj.superfantasykingdom.weeklyhermit"].Instance.GetType();
             var retained = AccessTools.Field(plugin, "retainedGuest").GetValue(null) as GameObject;
-            Check(retained && !retained.activeSelf &&
-                AccessTools.Field(plugin, "queuedScene").GetValue(null) == (object)GameManager.Instance &&
-                OverlayManager.Instance.GetMerchant().GetComponentsInChildren<UICardUnit>().Length == 0,
+            var queueScene = AccessTools.Field(plugin, "queuedScene").GetValue(null) as GameManager;
+            Log("Day 23 retained=" + (retained ? retained.name : "none") + ", current scene=" +
+                (queueScene == GameManager.Instance) + ", world interactable=" + UIManager.Instance.IsWorldInteractable() +
+                ", resolved day=" + AccessTools.Field(plugin.Assembly.GetType("WeeklyHermit.Checkpoint"), "resolvedDay").GetValue(null));
+            Check(retained && !retained.activeSelf && queueScene == GameManager.Instance &&
+                !UIManager.Instance.IsWorldInteractable() && !WeeklyOfferOpen(),
                 "busy map holds the Day 23 offer");
             yield return Dawn(24);
             missed = false;
             yield return Delay(1);
-            Check(OverlayManager.Instance.GetMerchant().GetComponentsInChildren<UICardUnit>().Length == 0,
+            Check(!WeeklyOfferOpen(),
                 "missed Day 23 offer did not carry to Day 24");
+        }
+
+        private static bool WeeklyOfferOpen()
+        {
+            var overlays = OverlayManager.Instance;
+            var merchant = overlays.GetMerchant();
+            if (!overlays.IsOpen() || !merchant.isActiveAndEnabled) return false;
+            var callback = Traverse.Create(merchant).Field("m_Callback").GetValue<Delegate>();
+            return callback?.Method.DeclaringType?.Assembly ==
+                Chainloader.PluginInfos["gkj.superfantasykingdom.weeklyhermit"].Instance.GetType().Assembly;
         }
     }
 }
