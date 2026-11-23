@@ -16,6 +16,7 @@ metadata = json.loads(manifest.read_text(encoding="utf-8"))
 if metadata["name"] != "WeeklyHermit" or metadata["version_number"] != version:
     raise SystemExit("Project and manifest must identify the same release.")
 files = {
+    "LICENSE": root / "LICENSE",
     "manifest.json": manifest,
     "README.md": root / "README.md",
     "icon.png": root / "thunderstore/icon.png",

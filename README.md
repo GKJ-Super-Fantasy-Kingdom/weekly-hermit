@@ -30,3 +30,9 @@ python package.py
 ```
 
 The local import package is written to `dist/WeeklyHermit-0.1.0.zip`.
+
+## Contributing and license
+
+Bug reports and pull requests are welcome. See the [contribution guide](CONTRIBUTING.md) for local testing and reporting instructions.
+
+The original mod code is available under the [MIT License](LICENSE). Super Fantasy Kingdom, its game assets, and third-party dependencies retain their respective licenses and ownership.

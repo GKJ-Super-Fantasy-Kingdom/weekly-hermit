@@ -1,7 +1,7 @@
 {
   "name": "WeeklyHermit",
   "version_number": "0.1.0",
-  "website_url": "https://github.com/GKJ-Super-Fantasy-Kingdom/WeeklyHermit",
+  "website_url": "https://github.com/GKJ-Super-Fantasy-Kingdom/weekly-hermit",
   "description": "Meet the Hermit again every seven days. Inspect, recruit, banish or decline through the game's recruitment screen.",
   "dependencies": [
     "BepInEx-BepInExPack-5.4.2305",
