@@ -135,8 +135,13 @@ namespace WeeklyHermit.Tests
                             .Select(b => b.GetComponentInChildren<TMP_Text>()?.text).Where(s => !string.IsNullOrEmpty(s)).Take(24)));
                     nextStatus += 8;
                 }
-                var later = FindObjectsOfType<TMP_Text>().FirstOrDefault(t => t.text == "Later")?.GetComponentInParent<Button>();
-                if (later && later.IsInteractable()) later.onClick.Invoke();
+                var dismiss = FindObjectsOfType<TMP_Text>().FirstOrDefault(t => t.text == "Later" ||
+                    string.Equals(t.text, "Leave Caravan", StringComparison.OrdinalIgnoreCase))?.GetComponentInParent<Button>();
+                if (dismiss && dismiss.IsInteractable())
+                {
+                    Log("Selected " + dismiss.GetComponentInChildren<TMP_Text>()?.text);
+                    dismiss.onClick.Invoke();
+                }
                 else if (DialogueManager.Instance.IsInDialogue()) DialogueManager.Instance.Skip();
                 else if (dialogueBox.gameObject.activeInHierarchy && pad != null && !overlays.IsOpen())
                     yield return Press(GamepadButton.South);
