@@ -11,7 +11,9 @@ namespace WeeklyHermit
     // from an earlier dawn must never lose the offer or duplicate a saved unit.
     internal static class Checkpoint
     {
-        internal static bool Resolved;
+        private static int resolvedDay;
+        internal static bool Resolved => resolvedDay == DaytimeManager.Instance.CurrentDay();
+        internal static void Resolve() => resolvedDay = DaytimeManager.Instance.CurrentDay();
         internal static ManualLogSource Log;
 
         private static string Marker(GameData data)
@@ -27,7 +29,8 @@ namespace WeeklyHermit
             // The game clears its hash during Load. Read its saved value first.
             private static void Prefix(GameData ___m_GameData)
             {
-                Resolved = ___m_GameData != null && File.Exists(Marker(___m_GameData));
+                resolvedDay = ___m_GameData != null && File.Exists(Marker(___m_GameData))
+                    ? ___m_GameData.day + 1 : 0;
             }
         }
 
@@ -36,7 +39,8 @@ namespace WeeklyHermit
         {
             private static void Postfix(GameData __result)
             {
-                if (!Resolved || __result == null)
+                // The game stores the dawn that will load as a zero-based day.
+                if (__result == null || resolvedDay == 0 || __result.day + 1 != resolvedDay)
                     return;
                 try
                 {

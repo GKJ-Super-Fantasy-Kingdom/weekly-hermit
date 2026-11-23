@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="live/**/*.cs" />
+    <Compile Include="../src/RecruitmentPool.cs" Link="RecruitmentPool.cs" />
     <Compile Include="../src/Visit.cs" Link="Visit.cs" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,10 @@
 # Weekly Hermit
 
-In a standard kingdom run, the Hermit returns on Days 9, 16 and 23 after the original Day 2 meeting. Repeat visits open the game's recruitment screen directly when the map is free. The Hermit waits through guest dialogue, an open or minimized merchant screen, and cutscenes. A passive guest marker can stay on the map. Challenges use their authored Hermit schedule.
+In a standard kingdom run, the Hermit returns on Days 9, 16 and 23 after the original Day 2 meeting. Repeat visits open the game's recruitment screen directly when the map is free. The Hermit waits through guest dialogue, an open or minimized merchant screen, and cutscenes. If the map stays busy through day end, that visit expires. The next visit follows the regular schedule. A passive guest marker can stay on the map. Challenges use their authored Hermit schedule.
 
-Inspect a card and confirm to recruit or rank up, or use the Hermit's decline button to pass for the day. The native screen handles banishes, reroll costs, card details, input prompts and the return to the map. The repeat offer draws from eligible unlocked foreign units and skips the visit if the pool is empty.
+Inspect a card and confirm to recruit, or use the Hermit's decline button to pass for the day. The stock Hermit excludes units you already own. An owned unit can appear when a mod allows it through both the Hermit and merchant checks, and the native card handles the rank-up. The native screen handles banishes, reroll costs, card details, input prompts and the return to the map. The Day 2 conversation still occurs if no units are eligible. In that case the Hermit leaves without opening an empty screen. The repeat offer draws from eligible unlocked foreign units and skips the visit if the pool is empty.
+
+On each visit and reroll, Weekly Hermit reads the current unlocked and banished IDs and resolves the prefab the merchant will use for the card. Additions and replacements can appear as soon as they are registered there. Missing IDs, including a unit removed before reloading an earlier dawn, drop out of the offer. The repeat picker uses the Hermit's eligibility and price hooks and supplies its own seeded draw order.
 
 ## Local import
 
@@ -33,6 +35,6 @@ The local import package is written to `dist/WeeklyHermit-0.1.0.zip`.
 
 ## Contributing and license
 
-Bug reports and pull requests are welcome. See the [contribution guide](CONTRIBUTING.md) for local testing and reporting instructions.
+Bug reports and pull requests are welcome. See the [contribution guide](https://github.com/GKJ-Super-Fantasy-Kingdom/weekly-hermit/blob/main/CONTRIBUTING.md) for local testing and reporting instructions.
 
 The original mod code is available under the [MIT License](LICENSE). Super Fantasy Kingdom, its game assets, and third-party dependencies retain their respective licenses and ownership.
