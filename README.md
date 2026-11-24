@@ -1,3 +1,5 @@
+# Weekly Hermit
+
 Meet the Hermit on Day 2 as usual, then get another chance to recruit every seven days in a standard kingdom run. The first return visits are on **Days 9, 16 and 23**.
 
 ## Features
@@ -18,7 +20,7 @@ Meet the Hermit on Day 2 as usual, then get another chance to recruit every seve
 
 ![The Hermit offers Abomination, Devil and Vampire, with a scroll above each card and reroll and decline buttons below](https://raw.githubusercontent.com/GKJ-Super-Fantasy-Kingdom/weekly-hermit/f62a63d7ac44f9435cf976ef03941c96ed208f08/docs/screenshots/day-16-hermit.png)
 
-*Day 16, after Daily Caravan finished. Each scroll opens the details for the card beneath it.*
+*Day 16, after [Daily Caravan](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/DailyCaravan/) finished. Each scroll opens the details for the card beneath it.*
 
 ![Abomination’s details show its health, shield and active ability, which applies Taunt](https://raw.githubusercontent.com/GKJ-Super-Fantasy-Kingdom/weekly-hermit/f62a63d7ac44f9435cf976ef03941c96ed208f08/docs/screenshots/inspect-abomination.png)
 
@@ -27,10 +29,10 @@ Meet the Hermit on Day 2 as usual, then get another chance to recruit every seve
 ## Compatibility
 
 - Challenges keep their own Hermit schedule.
-- With **Daily Caravan** and **Visitor Calendar**, both visitors can appear on the Day 16 calendar. The Hermit waits while the Caravan is minimized and offers recruits after it finishes.
-- **UnlimitedJail 1.2.0** was tested in-game. Jailed units stayed out of the offer. For unit mods, eligibility follows the game’s active recruitment pool. Removed units drop out on reload, and an owned unit can rank up only when both the Hermit and merchant allow it.
+- With [Daily Caravan](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/DailyCaravan/) and [Visitor Calendar](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/VisitorCalendar/), both visitors can appear on the Day 16 calendar. The Hermit waits while the Caravan is minimized and offers recruits after it finishes.
+- [UnlimitedJail 1.2.0](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/UnlimitedJail/) was tested in-game. Jailed units stayed out of the offer. For unit mods, eligibility follows the game’s active recruitment pool. Removed units drop out on reload, and an owned unit can rank up only when both the Hermit and merchant allow it.
 
 ## Installation
 
-1. In Thunderstore Mod Manager or r2modman, select **Super Fantasy Kingdom** and install **WeeklyHermit** by **GKJ** with its listed BepInEx dependencies.
+1. In Thunderstore Mod Manager or [r2modman](https://thunderstore.io/c/super-fantasy-kingdom/p/ebkr/r2modman/), select **Super Fantasy Kingdom** and install **WeeklyHermit** by **GKJ** with both required packages, [BepInExPack](https://thunderstore.io/c/super-fantasy-kingdom/p/BepInEx/BepInExPack/) and [HideManagerGameObject_Config](https://thunderstore.io/c/super-fantasy-kingdom/p/BepInEx/HideManagerGameObject_Config/).
 2. Launch with **Start modded**. To change the seven-day interval, edit `IntervalDays` under `[Schedule]` in `BepInEx/config/gkj.superfantasykingdom.weeklyhermit.cfg` after the first launch. Choose 1–365 days and restart the game. Visits are counted from Day 2.
