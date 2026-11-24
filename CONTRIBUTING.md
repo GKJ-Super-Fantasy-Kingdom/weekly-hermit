@@ -13,7 +13,7 @@ Describe the player-visible change in your pull request. List the checks you ran
 ## Local import
 
 1. In Thunderstore Mod Manager or r2modman, select **Super Fantasy Kingdom** and a separate test profile. Install the BepInEx dependencies listed in the manifest.
-2. Open **Settings → Import local mod**, select `WeeklyHermit-0.1.0.zip`, and check that WeeklyHermit is enabled. Launch with **Start modded**.
+2. Open **Settings → Import local mod**, select `WeeklyHermit-0.1.2.zip`, and check that WeeklyHermit is enabled. Launch with **Start modded**.
 
 ## Controller playtest
 
@@ -34,7 +34,7 @@ dotnet run --project tests/VisitChecks.csproj -c Release
 python package.py
 ```
 
-The local import package is written to `dist/WeeklyHermit-0.1.0.zip`.
+The local import package is written to `dist/WeeklyHermit-0.1.2.zip`.
 
 ## Commit messages
 

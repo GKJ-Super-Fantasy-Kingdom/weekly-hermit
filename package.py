@@ -1,4 +1,5 @@
 """Pack a Release build for local Thunderstore import and check the resulting bytes."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -16,13 +17,16 @@ metadata = json.loads(manifest.read_text(encoding="utf-8"))
 if metadata["name"] != "WeeklyHermit" or metadata["version_number"] != version:
     raise SystemExit("Project and manifest must identify the same release.")
 files = {
+    "CHANGELOG.md": root / "CHANGELOG.md",
     "LICENSE": root / "LICENSE",
     "manifest.json": manifest,
     "README.md": root / "README.md",
     "icon.png": root / "thunderstore/icon.png",
     "plugins/WeeklyHermit.dll": root / "bin" / "Release" / framework / "WeeklyHermit.dll",
 }
-output = root / "dist" / f"WeeklyHermit-{version}.zip"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--output-dir", type=Path, default=root / "dist")
+output = parser.parse_args().output_dir.resolve() / f"WeeklyHermit-{version}.zip"
 output.parent.mkdir(exist_ok=True)
 with TemporaryDirectory(dir=output.parent) as scratch:
     staged = Path(scratch) / output.name
