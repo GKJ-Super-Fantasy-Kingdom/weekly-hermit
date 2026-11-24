@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 namespace WeeklyHermit
 {
-    [BepInPlugin(PluginId, "Weekly Hermit", "0.1.0")]
+    [BepInPlugin(PluginId, "Weekly Hermit", "0.1.2")]
     public sealed class WeeklyHermitPlugin : BaseUnityPlugin
     {
         private const string PluginId = "gkj.superfantasykingdom.weeklyhermit";
@@ -197,9 +197,34 @@ namespace WeeklyHermit
                     Checkpoint.Resolve();
                 });
             screen.Display();
+            var spacing = screen.GetComponent<RecruitCardSpacing>() ?? screen.gameObject.AddComponent<RecruitCardSpacing>();
+            spacing.Bind(Keywords(screen));
+        }
+
+        private static readonly AccessTools.FieldRef<UIOverlayMerchant, UIEffectKeywordDictionary> Keywords =
+            AccessTools.FieldRefAccess<UIOverlayMerchant, UIEffectKeywordDictionary>("keywordDictionary");
+
+        [HarmonyPatch(typeof(UIOverlayMerchant), nameof(UIOverlayMerchant.Init))]
+        private static class ResetRecruitSpacing
+        {
+            private static void Prefix(UIOverlayMerchant __instance)
+            {
+                var spacing = __instance.GetComponent<RecruitCardSpacing>();
+                if (spacing) spacing.enabled = false;
+            }
         }
 
         private static void ResolveRecruitment(int id, ResourceAmount[] costs) => Checkpoint.Resolve();
+
+        [HarmonyPatch(typeof(UIOverlayMerchant), nameof(UIOverlayMerchant.AddUnit))]
+        private static class CompareRecruits
+        {
+            private static void Postfix(UIOverlayMerchant __instance, UnitBase unit, GameObject __result)
+            {
+                if (__result && MerchantCallback(__instance) == ResolveRecruitment)
+                    RecruitCardPresentation.Apply(__result.GetComponent<UICardUnit>(), unit);
+            }
+        }
 
         private static readonly AccessTools.FieldRef<UIOverlayMerchant, Action<int, ResourceAmount[]>> MerchantCallback =
             AccessTools.FieldRefAccess<UIOverlayMerchant, Action<int, ResourceAmount[]>>("m_Callback");
@@ -233,7 +258,13 @@ namespace WeeklyHermit
             {
                 var screen = __instance.GetComponentInParent<UIOverlayMerchant>(true);
                 if (screen && !__instance.gameObject.activeInHierarchy && MerchantCallback(screen) == ResolveRecruitment)
+                {
                     inspectedCard = __instance;
+                    var overlays = OverlayManager.Instance;
+                    var details = overlays.GetOverlaySelection().GetComponentInChildren<UIUnitDetails>();
+                    if (details)
+                        details.gameObject.AddComponent<RecruitDetailsFooter>().Bind(overlays);
+                }
             }
         }
 
