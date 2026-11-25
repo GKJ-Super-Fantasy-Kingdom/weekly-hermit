@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+Clarify the mod’s description and compatibility for players.
+
 ## 0.1.2
 
 - Weekly recruit cards show the unit’s localized role and attack style above its quote when space permits.

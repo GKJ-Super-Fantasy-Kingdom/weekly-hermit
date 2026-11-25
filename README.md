@@ -29,13 +29,15 @@ Meet the Hermit on Day 2 as usual, then get another chance to recruit every seve
 
 ![Abomination’s inspection screen at 1.5× with its stats, grapple ability, Choose button and controller Cancel prompt](https://raw.githubusercontent.com/GKJ-Super-Fantasy-Kingdom/weekly-hermit/d92ef470277a588ffe4d6471eb40d2e7a4b30400/docs/screenshots/0.1.2/inspect-1.5x.png)
 
-*Inspect opens the full stat sheet. Choose and Cancel remain visible below it. All three captures are from Weekly Hermit 0.1.2 on game build 0.8.068 with simulated gamepad input.*
+*Inspect opens the recruit’s stat sheet. Choose and Cancel remain visible below it.*
 
 ## Compatibility
 
+- Works with Super Fantasy Kingdom **0.8.068** and the other [GKJ mods](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/).
+- [Daily Caravan](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/DailyCaravan/) and the Hermit can share a dawn. The Hermit waits for another active or minimized visitor to finish, and [Visitor Calendar](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/VisitorCalendar/) can show both visits.
+- The Hermit uses the game’s active recruit pool. Banned, jailed, locked, or removed units stay out of offers, including with [Unlimited Jail](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/UnlimitedJail/). An owned unit can rank up only when both the Hermit and merchant allow it.
 - Challenges keep their own Hermit schedule.
-- With [Daily Caravan](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/DailyCaravan/) and [Visitor Calendar](https://thunderstore.io/c/super-fantasy-kingdom/p/GKJ/VisitorCalendar/), both visitors can appear on the Day 16 calendar. The Hermit waits while the Caravan is minimized and offers recruits after it finishes.
-- [UnlimitedJail 1.2.0](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/UnlimitedJail/) was tested in-game. Jailed units stayed out of the offer. For unit mods, eligibility follows the game’s active recruitment pool. Removed units drop out on reload, and an owned unit can rank up only when both the Hermit and merchant allow it.
+- These community mods can share the same profile. [Achievement Enabler](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/AchievementEnabler/), [Bakery Uses Wheat](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/BakeryUsesWheat/), [More Relics](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/MoreRelics/), [Right Click Skip](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/RightClickSkip/), and [Tavern Food Priorities](https://thunderstore.io/c/super-fantasy-kingdom/p/ownlyme/TavernFoodPriorities/).
 
 ## Installation
 
