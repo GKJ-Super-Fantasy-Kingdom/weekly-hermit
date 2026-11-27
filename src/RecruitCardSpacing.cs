@@ -17,11 +17,11 @@ namespace WeeklyHermit
         {
             scroll = transform.Find("Panel/ScrollArea/Viewport") as RectTransform;
             purchases = transform.Find("Panel/BuyButtons") as RectTransform;
-            selection = scroll.Find("Selection");
-            keywords = dictionary.transform as RectTransform;
-            scrollX = scroll.anchoredPosition.x;
-            purchasesX = purchases.anchoredPosition.x;
-            enabled = true;
+            selection = scroll ? scroll.Find("Selection") : null;
+            keywords = dictionary ? dictionary.transform as RectTransform : null;
+            if (scroll) scrollX = scroll.anchoredPosition.x;
+            if (purchases) purchasesX = purchases.anchoredPosition.x;
+            enabled = scroll && purchases && keywords && selection;
         }
 
         private void LateUpdate()

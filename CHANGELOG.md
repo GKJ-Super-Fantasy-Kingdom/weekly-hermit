@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4
+
+- Recruit cards show the game’s role and attack-style icons when there is room for them.
+- Recruit highlights follow mouse hover or controller focus. An unavailable Buy action leaves its card unhighlighted.
+- Updated the Human and Undead recruitment screenshots.
+
 ## 0.1.3
 
 Clarify the mod’s description and compatibility for players.
