@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 namespace WeeklyHermit
 {
-    [BepInPlugin(PluginId, "Weekly Hermit", "0.1.4")]
+    [BepInPlugin(PluginId, "Weekly Hermit", "0.1.5")]
     public sealed class WeeklyHermitPlugin : BaseUnityPlugin
     {
         private const string PluginId = "gkj.superfantasykingdom.weeklyhermit";

@@ -1,6 +1,6 @@
 {
   "name": "WeeklyHermit",
-  "version_number": "0.1.4",
+  "version_number": "0.1.5",
   "website_url": "https://github.com/GKJ-Super-Fantasy-Kingdom/weekly-hermit",
   "description": "Recruit from the Hermit again every seven days after Day 2. Inspect, reroll, recruit, or decline each visit.",
   "dependencies": [

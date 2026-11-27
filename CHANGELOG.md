@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Updated the Thunderstore icon to the lantern-lit Hermit portrait.
+
 ## 0.1.4
 
 - Recruit cards show the game’s role and attack-style icons when there is room for them.
