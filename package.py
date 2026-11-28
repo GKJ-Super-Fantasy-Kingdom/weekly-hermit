@@ -20,7 +20,7 @@ files = {
     "CHANGELOG.md": root / "CHANGELOG.md",
     "LICENSE": root / "LICENSE",
     "manifest.json": manifest,
-    "README.md": root / "README.md",
+    "README.md": root / "thunderstore/README.md",
     "icon.png": root / "thunderstore/icon.png",
     "plugins/WeeklyHermit.dll": root / "bin" / "Release" / framework / "WeeklyHermit.dll",
 }
